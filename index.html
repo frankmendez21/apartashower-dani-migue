@@ -22,8 +22,7 @@
 (()=>{
 'use strict';
 const {SUPABASE_URL,SUPABASE_ANON_KEY}=window.APP_CONFIG||{};
-const configured=SUPABASE_URL&&SUPABASE_ANON_KEY&&!SUPABASE_URL.includes('https://smiyamxsvvjqrirhjnfp.supabase.co')&&!SUPABASE_ANON_KEY.includes('sb_publishable_kXooWaSifY_VU5_JO5JvIA_gtX73bOJ')&&window.supabase;
-const sb=configured?window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY):null;
+const configured=!!(SUPABASE_URL&&SUPABASE_ANON_KEY&&window.supabase);const sb=configured?window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY):null;
 const $=id=>document.getElementById(id),tokenKey='dm_gift_tokens_v1';let gifts=[],loading=true,busy=false,toastTimer,channel;
 let tokens={};try{tokens=JSON.parse(localStorage.getItem(tokenKey)||'{}')||{}}catch{}
 const h=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
