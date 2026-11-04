@@ -1,5 +1,176 @@
 <!doctype html>
 <html lang="es">
+
+<style>
+@property --glow-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.card {
+  position: relative;
+}
+
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+  pointer-events: none;
+  background: conic-gradient(
+    from var(--glow-angle, 0deg),
+    transparent 0deg,
+    rgba(184, 148, 83, .16) 34deg,
+    rgba(226, 164, 112, .85) 68deg,
+    rgba(184, 95, 67, .8) 90deg,
+    rgba(255, 232, 183, .95) 104deg,
+    transparent 142deg,
+    transparent 208deg,
+    rgba(82, 116, 92, .42) 252deg,
+    transparent 296deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  animation: cardGlowSpin 6.8s linear infinite;
+}
+
+.card::before {
+  inset: -5px;
+  padding: 7px;
+  opacity: .34;
+  filter: blur(7px);
+  z-index: 1;
+}
+
+.card::after {
+  inset: -1px;
+  padding: 1.6px;
+  opacity: .8;
+  z-index: 2;
+}
+
+.card:hover::before { opacity: .65; }
+.card:hover::after { opacity: 1; }
+
+.card.is-reserved::before,
+.card.is-reserved::after {
+  background: conic-gradient(
+    from var(--glow-angle, 0deg),
+    transparent 0deg,
+    rgba(141, 139, 130, .30) 70deg,
+    rgba(196, 159, 96, .38) 105deg,
+    transparent 152deg,
+    transparent 360deg
+  );
+  animation-duration: 12s;
+}
+
+.card.is-reserved::before { opacity: .16; }
+.card.is-reserved::after { opacity: .28; }
+
+@keyframes cardGlowSpin {
+  to { --glow-angle: 360deg; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card::before,
+  .card::after {
+    animation: none;
+  }
+  .card::before { opacity: .15; }
+  .card::after { opacity: .3; }
+}
+</style>
+<style>
+@property --glow-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.card {
+  position: relative;
+}
+
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+  pointer-events: none;
+  background: conic-gradient(
+    from var(--glow-angle, 0deg),
+    transparent 0deg,
+    rgba(184, 148, 83, .16) 34deg,
+    rgba(226, 164, 112, .85) 68deg,
+    rgba(184, 95, 67, .8) 90deg,
+    rgba(255, 232, 183, .95) 104deg,
+    transparent 142deg,
+    transparent 208deg,
+    rgba(82, 116, 92, .42) 252deg,
+    transparent 296deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  animation: cardGlowSpin 6.8s linear infinite;
+}
+
+.card::before {
+  inset: -5px;
+  padding: 7px;
+  opacity: .34;
+  filter: blur(7px);
+  z-index: 1;
+}
+
+.card::after {
+  inset: -1px;
+  padding: 1.6px;
+  opacity: .8;
+  z-index: 2;
+}
+
+.card:hover::before { opacity: .65; }
+.card:hover::after { opacity: 1; }
+
+.card.is-reserved::before,
+.card.is-reserved::after {
+  background: conic-gradient(
+    from var(--glow-angle, 0deg),
+    transparent 0deg,
+    rgba(141, 139, 130, .30) 70deg,
+    rgba(196, 159, 96, .38) 105deg,
+    transparent 152deg,
+    transparent 360deg
+  );
+  animation-duration: 12s;
+}
+
+.card.is-reserved::before { opacity: .16; }
+.card.is-reserved::after { opacity: .28; }
+
+@keyframes cardGlowSpin {
+  to { --glow-angle: 360deg; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card::before,
+  .card::after {
+    animation: none;
+  }
+  .card::before { opacity: .15; }
+  .card::after { opacity: .3; }
+}
+</style>  
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f8f5ef">
 <title>Apartashower de Dani &amp; Migue - Lista de Regalos</title>
